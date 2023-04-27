@@ -22,7 +22,10 @@ export default function StartMenu() {
             <div className="menu-group">
                 <div className="menu-content">
                     <InterceptInput />
-                    <ResumeAll />
+                    <div>
+                        <ResumeAll />
+                        <ClearAll />
+                    </div>
                 </div>
                 <div className="menu-legend">Intercept</div>
             </div>
@@ -82,6 +85,19 @@ export function ResumeAll() {
             onClick={() => dispatch(flowsActions.resumeAll())}
         >
             Resume All
+        </Button>
+    );
+}
+
+export function ClearAll() {
+    const dispatch = useAppDispatch();
+    return (
+        <Button
+            className="btn-sm"
+            icon="fa-trash text-success"
+            onClick={() => dispatch(flowsActions.clear())}
+        >
+            Clear All
         </Button>
     );
 }
